@@ -1,0 +1,132 @@
+//variables
+$card-border-radius: 8px;
+$card-width: 320px;
+$card-height: 400px;
+$header-background-color: ( "js": #F7DF18, "sass": #CD669A,  "html": #E44D26 );
+
+* {
+    transition: all 0.5s;
+}
+
+.container { 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    width: 60%;
+  }
+}
+
+.fm-card {
+    position: relative;
+    width: $card-width;
+    height: $card-height;
+    margin: auto;
+    background: #ffffff;
+    box-shadow: 0px 4px 8px 0px rgba(23, 23, 23, 0.2);
+    border-radius: $card-border-radius;
+}
+
+.fm-card-header {
+    width: 100%;
+    height: 40%;
+    border-top-left-radius: $card-border-radius;
+    border-top-right-radius: $card-border-radius;
+    overflow: hidden;
+
+    .js {
+      background-color: map-get($header-background-color, "js" );
+    }
+
+    .html {
+      background-color: map-get($header-background-color, "html" );
+    }
+
+    .sass {
+      background-color: map-get($header-background-color, "sass" );
+    }
+  
+    img {
+        object-fit: scale-down;
+        padding-top: 1px;
+        width: 100%;
+        height: 100%;
+    }
+
+    &:hover img {
+        transform: scale(1.2);
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+    &:after {
+        content: "";
+        position: absolute;
+        left: 10%;
+        top: 35%;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+        border-left: 15px solid #fff;
+        transform: rotate(-90deg);
+    }
+}
+
+.fm-card-content {
+    position: relative;
+    max-width: 100%;
+    height: 50%;
+    padding: 20px;
+
+    .title a {
+        text-decoration: none;
+        color: #232323;
+        font-weight: bold;
+        font-size: 20px;
+      
+        &:hover {
+            color: dodgerblue;
+        }
+    }
+
+    .summary p {
+        color: #555;
+        font-size: 16px;
+        overflow-wrap: break-word;
+        text-align: left;
+        max-width: 100ch;
+    }
+}
+
+.fm-card-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: #f9f9f9;
+    border-bottom-left-radius: $card-border-radius;
+    border-bottom-right-radius: $card-border-radius;
+
+    .by {
+        padding-left: 20px;
+
+        a {
+            text-decoration: none;
+            color: #777;
+            font-size: 14px;
+
+            &:hover {
+                color: dodgerblue;                
+            }
+          
+          .icon-heart {
+            color: crimson; font-size: 20px;
+          }
+        }
+    }
+}
